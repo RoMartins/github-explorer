@@ -17,6 +17,7 @@
     "plugins": [
         "@typescript-eslint",
         "prettier"
+
     ],
     "rules": {
         "prettier/prettier": "error",
@@ -30,7 +31,10 @@
 	      "error",
 	      "ignorePackages",
 	      {
-	        "ts": "never"
+	        "js": "never",
+        "jsx": "never",
+        "ts": "never",
+        "tsx": "never"
 	      }
 	    ]
 	  },
