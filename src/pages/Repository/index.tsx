@@ -3,6 +3,7 @@ import { FiChevronLeft, FiChevronRight } from 'react-icons/fi';
 import { useRouteMatch, Link } from 'react-router-dom';
 import logoImg from '../../assets/Logo.svg';
 import { Header, RepositoryInfo, Issues } from './styles';
+import api from '../../service/api';
 
 interface Params {
   repository: string;
@@ -10,7 +11,15 @@ interface Params {
 const Repository: React.FC = () => {
   const { params } = useRouteMatch<Params>();
 
-  useEffect(() => {}, []);
+  useEffect(() => {
+    async function loadData(): Promise<void> {
+      const [repository, issues] = await Promise.all([
+        api.get(`repos/${params.repository}`),
+        api.get(`repos/${params.repository}/issues`),
+      ]);
+    }
+    loadData();
+  }, [params.repository]);
   return (
     <>
       <Header>

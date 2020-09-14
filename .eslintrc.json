@@ -17,11 +17,18 @@
     },
     "plugins": [
         "@typescript-eslint",
-        "prettier"
+        "prettier",
+        "react",
+        "react-hooks"
 
     ],
     "rules": {
         "prettier/prettier": "error",
+        "react/jsx-one-expression-per-line": "off",
+        "react/jsx-filename-extension": [1, {"extensions" : [".tsx"]}],
+        "react-hooks/rules-of-hooks":"error",
+        "react-hooks/exhaustive-deps":"warn",
+        "import/prefer-default-export" : "off",
         "class-methods-use-this" :"off",
         "no-console": "off",
         "camelcase":"off",
